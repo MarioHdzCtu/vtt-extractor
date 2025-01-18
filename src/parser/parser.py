@@ -10,7 +10,7 @@ def extract_data(filepath: str) -> Iterator[TextBox]:
         if line.startswith('<v'):
             d['content'] = line
         elif line.endswith('</v>'):
-            d['content'] += line
+            d['content'] += f' {line}'
         elif '-->' in line:
             d['timestamp_str'] = line
         elif line == '':

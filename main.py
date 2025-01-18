@@ -7,7 +7,7 @@ def main():
     with open('all_text.txt','w') as f:
         for item in textbox_iterator:
             if item.speaker == 'JOSE CARLOS RODRIGUEZ REYNA':
-                f.write(item.text)
+                f.write(f' {item.text}')
 
 if __name__ == '__main__':
     main()
