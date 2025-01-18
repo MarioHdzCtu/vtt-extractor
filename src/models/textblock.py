@@ -19,3 +19,11 @@ class TextBox:
         match = re.search(r'<v(.*?)>', self.content)
         if match:
             return match.group(1).strip()
+        
+    @property
+    def start_time(self):
+        return self.timestamp_str.split(' --> ')[0]
+    
+    @property
+    def end_time(self):
+        return self.timestamp_str.split(' --> ')[1]
