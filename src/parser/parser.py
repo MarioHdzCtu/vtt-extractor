@@ -5,7 +5,6 @@ from typing import Iterator
 def extract_data(filepath: str) -> Iterator[TextBox]:
     file_content = read_file(filepath)
     title = next(file_content)
-    textbox_list = []
     d = {}
     for line in file_content:
         if line.startswith('<v'):
