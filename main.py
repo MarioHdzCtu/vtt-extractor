@@ -1,13 +1,20 @@
 from src.parser import extract_data
+from pathlib import Path
+import argparse
 
-def main():
+def main(file):
 
-    textbox_iterator = extract_data(r"F:\Descargas\Physical Security Class 01T.vtt")
+    _file = Path(file)
 
-    with open('all_text.txt','w') as f:
+    textbox_iterator = extract_data(_file)
+
+    with open(f'{_file.name}.txt','w', encoding='utf-8') as f:
         for item in textbox_iterator:
             if item.speaker == 'JOSE CARLOS RODRIGUEZ REYNA':
                 f.write(f' {item.text}')
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('file',type=str)
+    args = parser.parse_args()
+    main(args.file)
