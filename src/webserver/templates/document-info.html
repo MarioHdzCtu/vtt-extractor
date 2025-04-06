@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block custom_head %}
+<link rel="stylesheet" href=" {{url_for('static',path='styles/upload-document.css')}}">
+{% endblock %}
+
+{% block app%}
+
+<p>Your file: {{ file_name }}</p>
+
+<p>Speakers:</p>
+<ul>
+    {% for speaker in speakers %}
+    <li>{{speaker}}</li>
+    {% endfor %}
+</ul>
+
+<div class="dialogs">
+    <ul>
+        {% for item in items %}
+        <li>
+            <p class="speaker">{{item.speaker}}</p>
+            <p class="dialog-timestamp">{{item.start_time}} - {{item.end_time}}</p>
+            <p class="dialog-message">Message: {{item.text}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}
